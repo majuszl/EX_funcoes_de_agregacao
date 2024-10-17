@@ -5,8 +5,9 @@ FROM MEDICAMENTOS m
 /* 2 - Selecione a média de idade dos tutores. 
  * Obs : Não quero ano fixo. Ex: 2024 e sim que pegue o ano atual do servidor.
  * */
-SELECT AVG(t.DATA_NASCIMENTO) AS media_idades
-FROM TUTOR t
+SELECT p.*, t.*
+FROM PACIENTE p
+INNER JOIN TUTOR t ON t.ID_TUTOR = p.ID_TUTOR
 
 /* 3 - Selecione o menor valor unitário entre os medicamentos. */
 SELECT MIN(m.preco) AS menor_valor
